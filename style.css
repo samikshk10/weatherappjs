@@ -1,0 +1,91 @@
+*{
+    margin:0;
+    padding:0;
+    font-family: 'Century Gothic',CenturyGothic;
+}
+
+.searchbox {
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform:  translate(-50%,50%);
+    background: #122838;
+    height: 40px;
+    border-radius: 40px;
+    padding: 10px;
+    margin-bottom: 90px;
+    box-shadow: 5px 5px 7px #aaaaaa, -5px -5px 7px #fff;
+
+    }
+    
+    
+    
+     .searchbutton:hover {
+    background: white;
+    color : #122838;
+    }
+    
+    
+    .searchbutton:hover{
+    cursor:pointer;
+    }
+    
+    .searchbutton {
+    color: white;
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #2f3640;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+    border:none;
+    }
+    
+    .searchinput {
+    border:none;
+    background: none;
+    outline:none;
+    padding: 0;
+    color: white;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 40px;
+    width: 230px;
+    margin-bottom: 60px;
+
+    
+    }
+
+        #weather{
+            
+            display: flex;
+            justify-content: center;
+        }
+
+    .weathername{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: column;
+    }
+
+    .weathertitle{
+        text-transform: capitalize;
+    }
+
+   
+
+    .weatherdesign{
+        /* border:1px solid black; */
+        box-shadow: 7px 7px 14px #828282,-7px -7px 14px #ffffff;
+        width: 600px;
+        height:300px;
+    }
+
+
+    
+    
