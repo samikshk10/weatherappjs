@@ -10,6 +10,17 @@ h3 span{
     text-align: center;
 }
 
+h1 span{
+    font-size: 70px;
+    font-weight: 900;
+    text-shadow: 1px 3px rgba(0,0,0,0.6);
+}
+
+
+h1 img{
+    height: 120px;
+    width: 120px;
+}
 .searchbox {
     position: absolute;
     left: 50%;
@@ -77,10 +88,21 @@ h3 span{
         align-items: center;
         justify-content: space-evenly;
         flex-direction: column;
+        line-height: 1.5;
     }
+
+    #weatherdate{
+        text-align: center;
+    }
+
+
+    
+
+    
 
     .weathertitle{
         text-transform: capitalize;
+        text-align: center;
     }
 
    

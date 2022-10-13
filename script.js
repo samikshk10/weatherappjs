@@ -11,10 +11,24 @@ async function getWeatherByLocation(cityname){
          const response = await fetch(apiurl(cityname), {
              origin: "cros" });
          const responsedata = await response.json();
+
+         console.log(responsedata);
      
            addweather(responsedata);
+
           
      }
+
+     function datecreate(d){
+            let months=["January","February","March","April","May","June","July","August","September","October","November","December"];
+            let days=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+            let day=days[d.getDay()];
+            let date=d.getDate();
+            let month=months[d.getMonth()];
+            let year = d.getFullYear();
+            return  `${day} , ${date} ${month} ${year}`;
+
+            }
 
       function addweather(data){
           const temperature = KelvintoCelsiusConvert(data.main.temp);
@@ -24,10 +38,11 @@ async function getWeatherByLocation(cityname){
 
           weather.innerHTML = `
           <h1>
-          <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" /> ${temperature}°C  <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" /></h1>
+          <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" /><span>  ${temperature}°C  </span><img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" /></h1>
           
           <h3><span>${data.weather[0].main}<span></h3>  `;
-         
+            document.getElementById('weathertitle').innerHTML=`${data.name},${data.sys.country}`;
+
      
           main.innerHTML= "";
            main.appendChild(weather);
@@ -47,7 +62,8 @@ async function getWeatherByLocation(cityname){
         
         var city1 = search.value;
         const city=city1.toLowerCase();       
-        document.getElementById('weathertitle').innerHTML="Current "+city+" Weather";
+        let now=new Date();
+        document.getElementById('weatherdate').innerText=datecreate(now);
         
         if(city){
             getWeatherByLocation(city)
