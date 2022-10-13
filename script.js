@@ -6,18 +6,31 @@ const search = document.getElementById('searchs');
 const searchbtn=document.getElementById('searchbtn');
   
 const apiurl = (cityname)=> `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${apiKey}`;
+
 async function getWeatherByLocation(cityname){
      
          const response = await fetch(apiurl(cityname), {
              origin: "cros" });
          const responsedata = await response.json();
-
+      
+         if(responsedata.name==undefined)
+         {
+           
+           alert('Please Enter Valid City Name');
+           return false;
+         }
+         else{
+          document.getElementById('weather').classList.add('weatherdesign');
+          let now=new Date();
+           document.getElementById('weatherdate').innerText=datecreate(now);
          console.log(responsedata);
-     
+   
            addweather(responsedata);
+         }
 
           
      }
+    
 
      function datecreate(d){
             let months=["January","February","March","April","May","June","July","August","September","October","November","December"];
@@ -31,6 +44,7 @@ async function getWeatherByLocation(cityname){
             }
 
       function addweather(data){
+      
           const temperature = KelvintoCelsiusConvert(data.main.temp);
 
           const weather = document.createElement('div')
@@ -54,16 +68,14 @@ async function getWeatherByLocation(cityname){
          return conversion;
      }
 
-     
+     let city;
      form.addEventListener('submit',(e) =>{
-        document.getElementById('weather').classList.add('weatherdesign');
-        // alert('yes');     
-        e.preventDefault();
-        
-        var city1 = search.value;
-        const city=city1.toLowerCase();       
-        let now=new Date();
-        document.getElementById('weatherdate').innerText=datecreate(now);
+       // alert('yes');     
+       e.preventDefault();
+       
+       var city1 = search.value;
+       city=city1.toLowerCase();       
+
         
         if(city){
             getWeatherByLocation(city)
