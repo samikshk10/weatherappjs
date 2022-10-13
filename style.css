@@ -4,6 +4,12 @@
     font-family: 'Century Gothic',CenturyGothic;
 }
 
+
+h3 span{
+    font-size: 23px;
+    text-align: center;
+}
+
 .searchbox {
     position: absolute;
     left: 50%;

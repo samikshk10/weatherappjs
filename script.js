@@ -23,10 +23,11 @@ async function getWeatherByLocation(cityname){
           weather.classList.add('weather');
 
           weather.innerHTML = `
+          <h1>
+          <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" /> ${temperature}°C  <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" /></h1>
           
-          <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" /><h1> ${temperature}°C  </h1> <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" />
-        
-          <strong>${data.weather[0].main}</strong> `;
+          <h3><span>${data.weather[0].main}<span></h3>  `;
+         
      
           main.innerHTML= "";
            main.appendChild(weather);
